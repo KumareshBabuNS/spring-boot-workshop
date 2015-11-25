@@ -1,0 +1,12 @@
+package info.novatec.spring.boot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBootWorkshop2Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootWorkshop2Application.class, args);
+    }
+}

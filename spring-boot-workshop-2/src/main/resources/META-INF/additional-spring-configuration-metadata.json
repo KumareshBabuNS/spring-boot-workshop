@@ -1,0 +1,24 @@
+{
+  "properties": [
+    {
+      "name": "hello.greeting",
+      "type": "java.lang.String",
+      "description": "Greeting for first spring boot app."
+    }
+  ],
+  "hints": [
+    {
+      "name": "hello.greeting",
+      "values": [
+        {
+          "description": "informal.",
+          "value": "my bro"
+        },
+        {
+          "description": "formal.",
+          "value": "my dear"
+        }
+      ]
+    }
+  ]
+}
