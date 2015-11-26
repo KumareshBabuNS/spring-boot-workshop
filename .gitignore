@@ -13,3 +13,10 @@ hs_err_pid*
 .idea/
 *.iml
 target/
+*.classpath
+.settings/
+*.factorypath
+*.project
+spring-boot-workshop-1/.gitignore
+spring-boot-workshop-2/.gitignore
+spring-boot-workshop-3/.gitignore
