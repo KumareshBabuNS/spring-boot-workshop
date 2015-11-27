@@ -272,17 +272,44 @@ Seit Spring Boot Version 1.3 wird bei Verwendung der H2 Datenbank automatisch gl
 Diese kann über die URL [http://localhost:8080/h2-console](http://localhost:8080/h2-console) aufgerufen werden.
 
 Damit dies mit unserer Security-Konfiguration aus Lab 2 funktioniert müssen wir in der Klasse *WebSecurityConfig*
-zwei Zeilen ändern bzw. hinzufügen:
+zwei Zeilen ändern bzw. hinzufügen. 
+
+Die Zeile 
+
+    headers().frameOptions().deny()
+     
+muss geändert werden in 
+
+    headers().frameOptions().disable()
+       
+Hinter die existierende Zeile mit *.antMatchers ("/login")* muss die folgende Zeile hinzugefügt werden 
+
+    .antMatchers ( "/h2-console/**" ).permitAll ()
+
+Im Endergebnis sollte die Methode dann so aussehen:
 
     @Override
     protected void configure ( HttpSecurity http ) throws Exception {
         http
-            ...
+            .csrf ().disable ()
             .headers ().frameOptions ().disable ()
-            ...
+            .and ()
+            .authorizeRequests ()
+            .antMatchers ( "/login" ).permitAll ()
             .antMatchers ( "/h2-console/**" ).permitAll ()
-            ...
+            .anyRequest ().fullyAuthenticated ()
+            .and ()
+            .formLogin ().loginPage ( "/login" ).loginProcessingUrl ( "/j_spring_security_check" ).defaultSuccessUrl ( "/" );
     }
+
+Nachdem die H2 Konsole geöffnet wurde sollte darauf geachtet werden dass folgende Einträge ausgewählt bzw. vorbelegt sind:
+
+* Der ausgewählte DB-Typ sollte dieser sein: Generic H2 (Embedded)
+* Die Driver-Class sollte so aussehen: org.h2.Driver
+* Die JDBC-Url sollte so aussehen: jdbc:h2:mem:testdb
+
+Dann kann mittels *Connect* die Verbindung zur H2 Datenbank hergestellt werden. Dort sollte die *Person* Tabelle
+vorhanden sein. Hier kann man nun den Inhalt der Tabelle abfragen. 
 
 4.DB-Migration mit Flyway
 -------------------------
