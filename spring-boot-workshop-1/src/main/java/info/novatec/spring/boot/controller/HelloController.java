@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -27,7 +26,7 @@ public class HelloController {
     public String message() {
         if (applicationProperties.isShowCurrentDate ()) {
             LocalDateTime localDateTime = LocalDateTime.now ();
-            return String.format ( "hello %s. Today is: %s",
+            return String.format ( "hello %s. Today is:   %s",
                     greeting, localDateTime.format ( DateTimeFormatter.ISO_LOCAL_DATE_TIME ) );
         } else {
             return String.format ( "hello %s", greeting );

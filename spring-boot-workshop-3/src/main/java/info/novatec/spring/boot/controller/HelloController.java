@@ -26,7 +26,7 @@ public class HelloController {
     public String message() {
         if (applicationProperties.isShowCurrentDate ()) {
             LocalDateTime localDateTime = LocalDateTime.now ();
-            return String.format ( "hello %s. Today is: %s",
+            return String.format ( "hello %s. Today is:    %s",
                     greeting, localDateTime.format ( DateTimeFormatter.ISO_LOCAL_DATE_TIME ) );
         } else {
             return String.format ( "hello %s", greeting );
