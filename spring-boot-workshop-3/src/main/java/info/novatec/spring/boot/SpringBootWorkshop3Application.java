@@ -1,5 +1,6 @@
 package info.novatec.spring.boot;
 
+import info.novatec.spring.boot.config.ApplicationProperties;
 import info.novatec.spring.boot.jpa.Person;
 import info.novatec.spring.boot.jpa.PersonService;
 import org.slf4j.Logger;
@@ -8,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 import java.util.List;
 
+@EnableConfigurationProperties(ApplicationProperties.class)
 @SpringBootApplication
 public class SpringBootWorkshop3Application implements CommandLineRunner {
 

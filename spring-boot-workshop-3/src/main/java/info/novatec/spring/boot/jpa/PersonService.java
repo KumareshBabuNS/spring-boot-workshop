@@ -1,7 +1,6 @@
 package info.novatec.spring.boot.jpa;
 
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 /**

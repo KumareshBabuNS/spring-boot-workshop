@@ -1,7 +1,6 @@
 package info.novatec.spring.boot.jpa;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
-
 import javax.persistence.Entity;
 
 /**
